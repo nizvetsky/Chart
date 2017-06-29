@@ -1,7 +1,24 @@
 /**
  * Created by nizvetskyi on 29.06.2017.
  */
+$(document).ready(function() {
+    $('#input_date').click(function () {
+        var x = document.getElementById("input_title").value;
+        $.ajax({
+            type: "POST",
+            url: "/php/func.php",
+            data: "x=" + x,
+            dataType: "html",
+            cache: false,
+            success: function (data) {
+                alert(data);
+            }
 
+        });
+
+    });
+});
+/*
 var lab = [];
 var d = [];
 
@@ -33,4 +50,4 @@ function ch() {
             ]
         }
     });
-}
+}*/

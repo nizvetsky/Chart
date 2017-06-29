@@ -1,0 +1,7 @@
+<?php
+if($_SERVER["REQUEST_METHOD"] == "POST") {
+    $x = $_POST["x"];
+    $res = pow($x, 2);
+    echo $res;
+}
+?>
