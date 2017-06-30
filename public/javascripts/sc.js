@@ -6,16 +6,14 @@ $(document).ready(function() {
         var x = document.getElementById("input_title").value;
         $.ajax({
             type: "POST",
-            url: "/php/func.php",
-            data: "x=" + x,
+            url: "php/func.php",
+            data: "x="+x,
             dataType: "html",
             cache: false,
             success: function (data) {
                 alert(data);
             }
-
         });
-
     });
 });
 /*
