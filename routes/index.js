@@ -9,14 +9,14 @@ router.get('/', function(req, res, next) {
 router.get('/:time?',
     function (req, res, next) {
         if (req.params.time) {
-            var t = '{ employees : [';
+            var t = '{ "employees" : [';
             for (var i = 0; i<=10; i++)
             {
               var tr = parseInt(req.query.d)+i;
                 if (i < 10) {
-                    t = t + '{ x[' + i + ']:' + tr + ' , y[' + i + ']:' + Math.pow(tr, 2) + ' },';
+                    t = t + '{ "x":"' + tr + '" , "y":"' + Math.pow(tr, 2) + '" },';
                 } else {
-                    t = t + '{ x[' + i + ']:' + tr + ' , y[' + i + ']:' + Math.pow(tr, 2) + ' } ]}';
+                    t = t + '{ "x":"' + tr + '" , "y":"' + Math.pow(tr, 2) + '" } ]}';
                 }
             }
             res.json(t);
