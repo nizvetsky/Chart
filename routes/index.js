@@ -9,20 +9,17 @@ router.get('/', function(req, res, next) {
 router.get('/:time?',
     function (req, res, next) {
         if (req.params.time) {
-            var t = '{ "employees" : [';
-            res.json(t);
-            res.json(req.params.time);
+            var t = '{ employees : [';
             for (var i = 0; i<=10; i++)
             {
+              var tr = parseInt(req.query.d)+i;
                 if (i < 10) {
-                    var t = '{ "x[' + i + ']":"' + req.params.time+i + '" , "y[' + i + ']":"' + Math.pow(req.params.time+i, 2) + '" },';
-                    res.json(t);
+                    t = t + '{ x[' + i + ']:' + tr + ' , y[' + i + ']:' + Math.pow(tr, 2) + ' },';
                 } else {
-                    var t = '{ "x[' + i + ']":"' + req.params.time+i + '" , "y[' + i + ']":"' + Math.pow(req.params.time+i, 2) + '" } ]}';
-                    res.json(t);
+                    t = t + '{ x[' + i + ']:' + tr + ' , y[' + i + ']:' + Math.pow(tr, 2) + ' } ]}';
                 }
             }
-
+            res.json(t);
         }
     });
 /*
