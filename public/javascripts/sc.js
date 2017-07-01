@@ -42,20 +42,24 @@ $(document).ready(function() {
             data: data
         });
 
-        setInterval(function () {
+
         var time_now = new Date();
         var getS = time_now.getSeconds();
         $.getJSON("/time?d="+getS, function(result){
             result.replace("\/", '');
             var object = JSON.parse(result);
-                var x = object.employees[0].x;
-                var y = object.employees[0].y;
+            var q = 0;
+            setInterval(function () {
+                var x = parseInt(object.employees[0].x);
+                var y = parseInt(object.employees[0].y);
+                x = x+q;
+                y = Math.pow(Math.sqrt(y)+q,2);
                 parsedX.push(x);
                 parsedY.push(y);
-            lineChart1.update();
+                lineChart1.update();
+                q = q +1;
+            },1000);
         });
-        },2000);
-
     });
 });
 /*
