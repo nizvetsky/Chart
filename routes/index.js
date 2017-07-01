@@ -3,16 +3,34 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Table' });
+  res.render('index', { title: 'Graphic View' });
 });
 
 router.get('/:time?',
     function (req, res, next) {
             if (req.params.time) {
-                var tr = parseInt(req.query.d);
+                if (req.query.d) {
+                    var tr = parseInt(req.query.d);
                     var t = '{ "employees" : [';
                     t = t + '{ "x":"' + tr + '" , "y":"' + Math.pow(tr, 2) + '" } ]}';
                     res.json(t);
+                }
+                if (req.query.g) {
+                    var te = parseFloat(req.query.g);
+                    var tee = '{ "employees" : [';
+                    if (te > 0){
+                        tee = tee + '{ "x":"' + te + '" , "y":"' + (1/te).toFixed(3) + '" } ]}';
+                        res.json(tee);
+                    }
+                }
+                if (req.query.l) {
+                    var tl = parseFloat(req.query.l);
+                    var tll = '{ "employees" : [';
+                    if (tl > 0){
+                        tll = tll + '{ "x":"' + tl + '" , "y":"' + (Math.log(tl)).toFixed(3) + '" } ]}';
+                        res.json(tll);
+                    }
+                }
             }
     });
 /*

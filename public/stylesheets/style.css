@@ -3,11 +3,33 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+#view_content {
+  width: 900px;
+  height: auto;
+  margin: 0 auto;
+}
+
 a {
   color: #00B7FF;
 }
 
+#view_content h1 {
+  text-align: center;
+}
+
+#view_content ul {
+  list-style-type: none;
+}
+
+#view_content ul li input {
+  padding: 5px;
+  margin-left: 108px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  border-radius: 5px;
+  float: left;
+}
+
 canvas {
   height:400px;
-  width:800px;
+  width:900px;
 }

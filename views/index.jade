@@ -1,11 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  input#input_date(type='button', name='input_date', value='Open table')
-  br
-  div(height="400px", width="800px")
-    canvas#lineChart
+  div#view_content
+    h1= title
+    ul
+      li.butt
+        input#input_date(type='button', name='input_date', value='Open graphic line')
+      li.butt
+        input#input_gip(type='button', name='input_gip', value='Open graphic giperbola')
+      li.butt
+        input#input_log(type='button', name='input_log', value='Open graphic logarifma')
+    br
+    div#graph-container(height="400px", width="900px")
+      canvas#lineChart
   script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js')
   script(src='/javascripts/sc.js')
 
