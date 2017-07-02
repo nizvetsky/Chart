@@ -115,7 +115,7 @@ $(document).ready(function() {
         newChart();
         var time_now = new Date();                          // теперішня дата
         var getS = time_now.getSeconds();                   // вирахунок даної секунди часу
-        $.getJSON("/time?g="+getS, function(result){        // get запит на створення json рядка
+        $.getJSON("/time?l="+getS, function(result){        // get запит на створення json рядка
             result.replace("\/", '');                       // очистка зайвих '\', які ставляться сервером
             var object = JSON.parse(result);                // створення об'єкта json
             var q = 0;                                      // ітератор для циклу
